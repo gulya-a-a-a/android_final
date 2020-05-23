@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -21,7 +20,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    flavorDimensions 'navigation'
+    productFlavors {
+        gps {
+            dimension = 'navigation'
+            versionNameSuffix = '.gps'
+            applicationIdSuffix = '.gps'
+        }
+        without_gps {
+            dimension = 'navigation'
+            versionNameSuffix = '.without_gps'
+            applicationIdSuffix = '.without_gps'
+        }
+    }
 }
 
 dependencies {
@@ -36,6 +47,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation "android.arch.persistence.room:runtime:1.1.1"
-    implementation 'com.google.firebase:firebase-messaging:20.1.7'
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 }
