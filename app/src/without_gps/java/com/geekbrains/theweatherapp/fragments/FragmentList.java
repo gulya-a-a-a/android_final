@@ -109,7 +109,7 @@ public class FragmentList extends Fragment {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
             mCurrentCityData = new Parcel(0, new City(sp.getString(PARCEL_TAG, "")));
             isFirstOpen = false;
-            getWeatherByCoordinates();
+            getWeather(mCurrentCityData.getCity().getCityName());
         }
 
         initPeriodicWeatherChecking();
@@ -187,6 +187,8 @@ public class FragmentList extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.main, menu);
+        MenuItem gpsItem = menu.findItem(R.id.detect_location_item);
+        gpsItem.setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

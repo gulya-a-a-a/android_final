@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -19,6 +18,19 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions 'navigation'
+    productFlavors {
+        gps {
+            dimension = 'navigation'
+            versionNameSuffix = '.gps'
+            applicationIdSuffix = '.gps'
+        }
+        without_gps {
+            dimension = 'navigation'
+            versionNameSuffix = '.without_gps'
+            applicationIdSuffix = '.without_gps'
         }
     }
 }

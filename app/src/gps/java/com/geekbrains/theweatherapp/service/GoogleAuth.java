@@ -2,11 +2,9 @@ package com.geekbrains.theweatherapp.service;
 
 import android.content.Context;
 
-import com.geekbrains.theweatherapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 
 public class GoogleAuth {
     private GoogleSignInClient mGoogleSignInClient;
